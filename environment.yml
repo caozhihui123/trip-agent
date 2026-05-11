@@ -1,0 +1,14 @@
+name: py3.10
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+    - fastapi
+    - uvicorn
+    - hello-agents
+    - httpx
+    - python-dotenv
+    - pydantic

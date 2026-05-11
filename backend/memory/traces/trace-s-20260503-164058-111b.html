@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Trace: s-20260503-164058-111b</title>
+    <style>
+        body {
+            font-family: 'Consolas', 'Monaco', monospace;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            margin: 0;
+        }
+        .header {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0 0 10px 0;
+            color: #4af626;
+        }
+        .stats-panel {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .stat-item {
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #4af626;
+        }
+        .stat-label {
+            display: block;
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        .stat-value {
+            display: block;
+            color: #e0e0e0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .tool-stats {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .tool-stats th, .tool-stats td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+        .tool-stats th {
+            color: #4af626;
+        }
+        .error-list {
+            list-style: none;
+            padding: 0;
+        }
+        .error-list li {
+            background: #331111;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border-left: 3px solid #ff4444;
+        }
+        .events-container {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .event {
+            border: 1px solid #333;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            background: #1a1a1a;
+        }
+        .event-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .step {
+            color: #888;
+            font-size: 12px;
+        }
+        .timestamp {
+            color: #666;
+            font-size: 11px;
+        }
+        .event-type {
+            color: #4af626;
+            font-weight: bold;
+        }
+        .expandable {
+            cursor: pointer;
+            color: #4af626;
+            user-select: none;
+        }
+        .expandable:hover {
+            color: #6fff48;
+        }
+        .details {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #0d0d0d;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .details pre {
+            margin: 0;
+            color: #e0e0e0;
+        }
+        .tool-call {
+            border-left: 3px solid #4af626;
+        }
+        .tool-result {
+            border-left: 3px solid #ffd700;
+        }
+        .error {
+            border-left: 3px solid #ff4444;
+            background: #2a1a1a;
+        }
+        .model-output {
+            border-left: 3px solid #00bfff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔍 Trace Session: s-20260503-164058-111b</h1>
+        <p>生成时间: 2026-05-03 16:40:58</p>
+    </div>
+
+    <div class="events-container">
+        <h2>📋 事件列表</h2>
+
+        <div class="event">
+            <div class="event-header">
+                <span class="step">Step -</span>
+                <span class="timestamp">2026-05-03T16:40:58.009366</span>
+                <span class="event-type">session_start</span>
+                <span class="expandable" onclick="toggleDetails('details-1')">[▼ 详情]</span>
+            </div>
+            <div id="details-1" class="details">
+                <pre>{
+  "agent_name": "旅行规划助手",
+  "agent_type": "SimpleAgent"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="event-header">
+                <span class="step">Step -</span>
+                <span class="timestamp">2026-05-03T16:40:58.010367</span>
+                <span class="event-type">message_written</span>
+                <span class="expandable" onclick="toggleDetails('details-2')">[▼ 详情]</span>
+            </div>
+            <div id="details-2" class="details">
+                <pre>{
+  "role": "user",
+  "content": "请为我规划一次 苏州 的 1 天旅行：\n- 出发日期：2026-05-10\n- 总预算：1000.0 元\n- 偏好：园林\n- 交通方式：walking\n- 酒店偏好：经济型\n\n请严格按照输出格式生成完整的旅行计划 JSON。"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event model-output">
+            <div class="event-header">
+                <span class="step">Step 1</span>
+                <span class="timestamp">2026-05-03T16:41:17.337023</span>
+                <span class="event-type">model_output</span>
+                <span class="expandable" onclick="toggleDetails('details-3')">[▼ 详情]</span>
+            </div>
+            <div id="details-3" class="details">
+                <pre>{
+  "content": "好的，信息收集完毕。现在我来生成完整的1天苏州园林之旅旅行计划JSON。\n\n```json\n{\n  \"city\": \"苏州\",\n  \"days\": 1,\n  \"schedule\": [\n    {\n      \"day\": 1,\n      \"date\": \"2026-05-10\",\n      \"attractions\": [\n        {\n          \"name\": \"苏州博物馆\",\n          \"address\": \"东北街204号(北寺塔地铁站4号口步行1.1公里)\",\n          \"lng\": 120.627416,\n          \"lat\": 31.324427,\n          \"visit_duration\": \"2小时\",\n          \"ticket_price\": 0,\n          \"description\": \"贝聿铭设计的建筑杰作，白墙黛瓦与几何线条完美融合，馆藏丰富，本身就是一件艺术品\",\n          \"poi_id\": \"B00170F5X9\"\n        },\n        {\n          \"name\": \"拙政园\",\n          \"address\": \"东北街178号(北寺塔地铁站4号口步行1.2公里)\",\n          \"lng\": 120.625946,\n          \"lat\": 31.324842,\n          \"visit_duration\": \"2小时\",\n          \"ticket_price\": 80,\n          \"description\": \"中国四大名园之一，世界文化遗产，苏州园林之冠，亭台楼阁、水榭花木，一步一景\",\n          \"poi_id\": \"B00170F5XA\"\n        },\n        {\n          \"name\": \"狮子林\",\n          \"address\": \"园林路23号(北寺塔地铁站4号口步行1.1公里)\",\n          \"lng\": 120.627426,\n          \"lat\": 31.323804,\n          \"visit_duration\": \"1.5小时\",\n          \"ticket_price\": 40,\n          \"description\": \"世界文化遗产，以假山叠石闻名，太湖石迷宫妙趣横生，乾隆皇帝六次到访\",\n          \"poi_id\": \"B00170F5XB\"\n        },\n        {\n          \"name\": \"平江路历史街区\",\n          \"address\": \"平江路(相门地铁站3号口步行830米)\",\n          \"lng\": 120.630386,\n          \"lat\": 31.315397,\n          \"visit_duration\": \"1.5小时\",\n          \"ticket_price\": 0,\n          \"description\": \"苏州保存最完好的古街，小桥流水人家，沿河漫步，感受江南水乡的温婉与诗意\",\n          \"poi_id\": \"B00170F5XC\"\n        }\n      ],\n      \"meals\": [\n        {\n          \"restaurant\": \"同得兴面馆(嘉馀坊店)\",\n          \"address\": \"嘉馀坊6号(乐桥地铁站8号口步行340米)\",\n          \"lng\": 120.620745,\n          \"lat\": 31.316253,\n          \"meal_type\": \"早餐\",\n          \"estimated_cost\": 25,\n          \"recommendation\": \"枫镇大肉面、白汤面、焖肉面\"\n        },\n        {\n          \"restaurant\": \"松鹤楼(观前街店)\",\n          \"address\": \"太监弄72号(乐桥地铁站7号口步行480米)\",\n          \"lng\": 120.622894,\n          \"lat\": 31.315962,\n          \"meal_type\": \"午餐\",\n          \"estimated_cost\": 80,\n          \"recommendation\": \"松鼠桂鱼、清炒虾仁、响油鳝糊\"\n        },\n        {\n          \"restaurant\": \"哑巴生煎(临顿路店)\",\n          \"address\": \"临顿路温家岸12号(临顿路地铁站4号口步行60米)\",\n          \"lng\": 120.625626,\n          \"lat\": 31.317985,\n          \"meal_type\": \"晚餐\",\n          \"estimated_cost\": 30,\n          \"recommendation\": \"鲜肉生煎、荠菜馄饨、牛肉粉丝汤\"\n        }\n      ],\n      \"routes\": [\n        {\n          \"from_place\": \"苏州博物馆\",\n          \"to_place\": \"拙政园\",\n          \"mode\": \"walking\",\n          \"distance\": \"0.2km\",\n          \"duration\": \"3分钟\"\n        },\n        {\n          \"from_place\": \"拙政园\",\n          \"to_place\": \"狮子林\",\n          \"mode\": \"walking\",\n          \"distance\": \"0.3km\",\n          \"duration\": \"5分钟\"\n        },\n        {\n          \"from_place\": \"狮子林\",\n          \"to_place\": \"平江路历史街区\",\n          \"mode\": \"walking\",\n          \"distance\": \"0.8km\",\n          \"duration\": \"12分钟\"\n        }\n      ]\n    }\n  ],\n  \"hotel\": {\n    \"name\": \"汉庭酒店(苏州观前街中心店)\",\n    \"address\": \"观前街宫巷110号(乐桥地铁站7号口步行350米)\",\n    \"lng\": 120.623875,\n    \"lat\": 31.317425,\n    \"price_per_night\": 200,\n    \"rating\": \"经济型\"\n  },\n  \"budget\": {\n    \"tickets\": 120,\n    \"hotel\": 200,\n    \"dining\": 135,\n    \"transportation\": 0,\n    \"total\": 455\n  },\n  \"weather\": [\n    {\n      \"date\": \"2026-05-10\",\n      \"day_weather\": \"多云\",\n      \"night_weather\": \"晴\",\n      \"day_temp\": 25,\n      \"night_temp\": 16\n    }\n  ],\n  \"tips\": [\n    \"苏州博物馆免费但需提前预约，建议提前3天在官方公众号预约，贝聿铭设计非常值得一看\",\n    \"拙政园与苏州博物馆、狮子林紧邻，步行即可到达，建议上午先逛博物馆再游园林\",\n    \"拙政园门票80元，建议提前网上购票避免排队，旺季游客较多\",\n    \"狮子林以假山迷宫著称，穿舒适鞋子方便攀爬探索\",\n    \"平江路是苏州最值得逛的历史街区，沿河有很多文艺小店和茶馆\",\n    \"同得兴面馆的枫镇大肉面是苏州特色早餐，汤头鲜美，推荐尝试\",\n    \"松鹤楼是苏州老字号，松鼠桂鱼是必点招牌菜\",\n    \"全程步行即可游览所有景点，非常轻松惬意，适合慢节奏感受苏州园林之美\",\n    \"预算1000元，实际花费约455元，剩余预算可购买苏绣、碧螺春等苏州特产\"\n  ]\n}\n```",
+  "tool_calls": 0,
+  "usage": {
+    "prompt_tokens": 29969,
+    "completion_tokens": 1451,
+    "total_tokens": 31420
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="event-header">
+                <span class="step">Step -</span>
+                <span class="timestamp">2026-05-03T16:41:17.338035</span>
+                <span class="event-type">session_end</span>
+                <span class="expandable" onclick="toggleDetails('details-4')">[▼ 详情]</span>
+            </div>
+            <div id="details-4" class="details">
+                <pre>{
+  "duration": 19.328669,
+  "total_steps": 1,
+  "final_answer": "好的，信息收集完毕。现在我来生成完整的1天苏州园林之旅旅行计划JSON。\n\n```json\n{\n  \"city\": \"苏州\",\n  \"days\": 1,\n  \"schedule\": [\n    {\n      \"day\": 1,\n      \"date\": \"2026-05-10\",\n      \"attractions\": [\n        {\n          \"name\": \"苏州博物馆\",\n          \"address\": \"东北街204号(北寺塔地铁站4号口步行1.1公里)\",\n          \"lng\": 120.627416,\n          \"lat\": 31.324427,\n          \"visit_duration\": \"2小时\",\n          \"ticket_price\": 0,\n          \"description\": \"贝聿铭设计的建筑杰作，白墙黛瓦与几何线条完美融合，馆藏丰富，本身就是一件艺术品\",\n          \"poi_id\": \"B00170F5X9\"\n        },\n        {\n          \"name\": \"拙政园\",\n          \"address\": \"东北街178号(北寺塔地铁站4号口步行1.2公里)\",\n          \"lng\": 120.625946,\n          \"lat\": 31.324842,\n          \"visit_duration\": \"2小时\",\n          \"ticket_price\": 80,\n          \"description\": \"中国四大名园之一，世界文化遗产，苏州园林之冠，亭台楼阁、水榭花木，一步一景\",\n          \"poi_id\": \"B00170F5XA\"\n        },\n        {\n          \"name\": \"狮子林\",\n          \"address\": \"园林路23号(北寺塔地铁站4号口步行1.1公里)\",\n          \"lng\": 120.627426,\n          \"lat\": 31.323804,\n          \"visit_duration\": \"1.5小时\",\n          \"ticket_price\": 40,\n          \"description\": \"世界文化遗产，以假山叠石闻名，太湖石迷宫妙趣横生，乾隆皇帝六次到访\",\n          \"poi_id\": \"B00170F5XB\"\n        },\n        {\n          \"name\": \"平江路历史街区\",\n          \"address\": \"平江路(相门地铁站3号口步行830米)\",\n          \"lng\": 120.630386,\n          \"lat\": 31.315397,\n          \"visit_duration\": \"1.5小时\",\n          \"ticket_price\": 0,\n          \"description\": \"苏州保存最完好的古街，小桥流水人家，沿河漫步，感受江南水乡的温婉与诗意\",\n          \"poi_id\": \"B00170F5XC\"\n        }\n      ],\n      \"meals\": [\n        {\n          \"restaurant\": \"同得兴面馆(嘉馀坊店)\",\n          \"address\": \"嘉馀坊6号(乐桥地铁站8号口步行340米)\",\n          \"lng\": 120.620745,\n          \"lat\": 31.316253,\n          \"meal_type\": \"早餐\",\n          \"estimated_cost\": 25,\n          \"recommendation\": \"枫镇大肉面、白汤面、焖肉面\"\n        },\n        {\n          \"restaurant\": \"松鹤楼(观前街店)\",\n          \"address\": \"太监弄72号(乐桥地铁站7号口步行480米)\",\n          \"lng\": 120.622894,\n          \"lat\": 31.315962,\n          \"meal_type\": \"午餐\",\n          \"estimated_cost\": 80,\n          \"recommendation\": \"松鼠桂鱼、清炒虾仁、响油鳝糊\"\n        },\n        {\n          \"restaurant\": \"哑巴生煎(临顿路店)\",\n          \"address\": \"临顿路温家岸12号(临顿路地铁站4号口步行60米)\",\n          \"lng\": 120.625626,\n          \"lat\": 31.317985,\n          \"meal_type\": \"晚餐\",\n          \"estimated_cost\": 30,\n          \"recommendation\": \"鲜肉生煎、荠菜馄饨、牛肉粉丝汤\"\n        }\n      ],\n      \"routes\": [\n        {\n          \"from_place\": \"苏州博物馆\",\n          \"to_place\": \"拙政园\",\n          \"mode\": \"walking\",\n          \"distance\": \"0.2km\",\n          \"duration\": \"3分钟\"\n        },\n        {\n          \"from_place\": \"拙政园\",\n          \"to_place\": \"狮子林\",\n          \"mode\": \"walking\",\n          \"distance\": \"0.3km\",\n          \"duration\": \"5分钟\"\n        },\n        {\n          \"from_place\": \"狮子林\",\n          \"to_place\": \"平江路历史街区\",\n          \"mode\": \"walking\",\n          \"distance\": \"0.8km\",\n          \"duration\": \"12分钟\"\n        }\n      ]\n    }\n  ],\n  \"hotel\": {\n    \"name\": \"汉庭酒店(苏州观前街中心店)\",\n    \"address\": \"观前街宫巷110号(乐桥地铁站7号口步行350米)\",\n    \"lng\": 120.623875,\n    \"lat\": 31.317425,\n    \"price_per_night\": 200,\n    \"rating\": \"经济型\"\n  },\n  \"budget\": {\n    \"tickets\": 120,\n    \"hotel\": 200,\n    \"dining\": 135,\n    \"transportation\": 0,\n    \"total\": 455\n  },\n  \"weather\": [\n    {\n      \"date\": \"2026-05-10\",\n      \"day_weather\": \"多云\",\n      \"night_weather\": \"晴\",\n      \"day_temp\": 25,\n      \"night_temp\": 16\n    }\n  ],\n  \"tips\": [\n    \"苏州博物馆免费但需提前预约，建议提前3天在官方公众号预约，贝聿铭设计非常值得一看\",\n    \"拙政园与苏州博物馆、狮子林紧邻，步行即可到达，建议上午先逛博物馆再游园林\",\n    \"拙政园门票80元，建议提前网上购票避免排队，旺季游客较多\",\n    \"狮子林以假山迷宫著称，穿舒适鞋子方便攀爬探索\",\n    \"平江路是苏州最值得逛的历史街区，沿河有很多文艺小店和茶馆\",\n    \"同得兴面馆的枫镇大肉面是苏州特色早餐，汤头鲜美，推荐尝试\",\n    \"松鹤楼是苏州老字号，松鼠桂鱼是必点招牌菜\",\n    \"全程步行即可游览所有景点，非常轻松惬意，适合慢节奏感受苏州园林之美\",\n    \"预算1000元，实际花费约455元，剩余预算可购买苏绣、碧螺春等苏州特产\"\n  ]\n}\n```",
+  "status": "success"
+}</pre>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="stats-panel">
+        <h2>📊 会话统计</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-label">总步骤数</span>
+                <span class="stat-value">1</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">总 Token</span>
+                <span class="stat-value">31,420</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">总成本</span>
+                <span class="stat-value">$0.0000</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">会话时长</span>
+                <span class="stat-value">19.3s</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">模型调用次数</span>
+                <span class="stat-value">1</span>
+            </div>
+        </div>
+
+        <h3>🔧 工具调用统计</h3>
+        <table class="tool-stats">
+            <tr><th>工具名称</th><th>调用次数</th></tr>
+            <tr><td colspan="2">无工具调用</td></tr>
+        </table>
+
+        
+    </div>
+
+    <script>
+        function toggleDetails(id) {
+            const el = document.getElementById(id);
+            if (el.style.display === 'none' || el.style.display === '') {
+                el.style.display = 'block';
+            } else {
+                el.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

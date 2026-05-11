@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(conda env *)",
+      "Bash(conda run *)",
+      "Bash(npm run *)",
+      "Read(//c/Users/21856/anaconda3/envs/py3.10/Scripts/**)",
+      "Read(//c/Users/21856/anaconda3/envs/py3.10/bin/**)",
+      "Bash(/c/Users/21856/anaconda3/envs/py3.10/Scripts/pip.exe install *)",
+      "Bash(/c/Users/21856/anaconda3/envs/py3.10/python *)",
+      "Bash(curl -s -X POST http://localhost:8000/api/trip/plan -H 'Content-Type: application/json' -d '{\"city\":\"杭州\",\"start_date\":\"2026-05-20\",\"days\":2,\"budget\":3000,\"preferences\":[\"自然风光\",\"美食\"],\"transportation\":\"walking\",\"hotel_preference\":\"舒适型\"}')",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d,ensure_ascii=False,indent=2\\)[:500] if isinstance\\(d,dict\\) else d[:200]\\)\")",
+      "Bash(curl -s http://localhost:8000/)"
+    ]
+  }
+}

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Trace: s-20260503-162942-171b</title>
+    <style>
+        body {
+            font-family: 'Consolas', 'Monaco', monospace;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            margin: 0;
+        }
+        .header {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0 0 10px 0;
+            color: #4af626;
+        }
+        .stats-panel {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .stat-item {
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #4af626;
+        }
+        .stat-label {
+            display: block;
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        .stat-value {
+            display: block;
+            color: #e0e0e0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .tool-stats {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .tool-stats th, .tool-stats td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+        .tool-stats th {
+            color: #4af626;
+        }
+        .error-list {
+            list-style: none;
+            padding: 0;
+        }
+        .error-list li {
+            background: #331111;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border-left: 3px solid #ff4444;
+        }
+        .events-container {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .event {
+            border: 1px solid #333;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            background: #1a1a1a;
+        }
+        .event-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .step {
+            color: #888;
+            font-size: 12px;
+        }
+        .timestamp {
+            color: #666;
+            font-size: 11px;
+        }
+        .event-type {
+            color: #4af626;
+            font-weight: bold;
+        }
+        .expandable {
+            cursor: pointer;
+            color: #4af626;
+            user-select: none;
+        }
+        .expandable:hover {
+            color: #6fff48;
+        }
+        .details {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #0d0d0d;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .details pre {
+            margin: 0;
+            color: #e0e0e0;
+        }
+        .tool-call {
+            border-left: 3px solid #4af626;
+        }
+        .tool-result {
+            border-left: 3px solid #ffd700;
+        }
+        .error {
+            border-left: 3px solid #ff4444;
+            background: #2a1a1a;
+        }
+        .model-output {
+            border-left: 3px solid #00bfff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔍 Trace Session: s-20260503-162942-171b</h1>
+        <p>生成时间: 2026-05-03 16:29:42</p>
+    </div>
+
+    <div class="events-container">
+        <h2>📋 事件列表</h2>
+
+        <div class="event">
+            <div class="event-header">
+                <span class="step">Step -</span>
+                <span class="timestamp">2026-05-03T16:29:42.996016</span>
+                <span class="event-type">session_start</span>
+                <span class="expandable" onclick="toggleDetails('details-1')">[▼ 详情]</span>
+            </div>
+            <div id="details-1" class="details">
+                <pre>{
+  "agent_name": "旅行规划助手",
+  "agent_type": "SimpleAgent"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="event-header">
+                <span class="step">Step -</span>
+                <span class="timestamp">2026-05-03T16:29:42.996016</span>
+                <span class="event-type">message_written</span>
+                <span class="expandable" onclick="toggleDetails('details-2')">[▼ 详情]</span>
+            </div>
+            <div id="details-2" class="details">
+                <pre>{
+  "role": "user",
+  "content": "请为我规划一次 郴州 的 4 天旅行：\n- 出发日期：2026-05-01\n- 总预算：5000.0 元\n- 偏好：历史文化, 自然风光, 美食之旅\n- 交通方式：driving\n- 酒店偏好：舒适型\n\n请严格按照输出格式生成完整的旅行计划 JSON。"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event model-output">
+            <div class="event-header">
+                <span class="step">Step 1</span>
+                <span class="timestamp">2026-05-03T16:30:32.479429</span>
+                <span class="event-type">model_output</span>
+                <span class="expandable" onclick="toggleDetails('details-3')">[▼ 详情]</span>
+            </div>
+            <div id="details-3" class="details">
+                <pre>{
+  "content": "好的，信息收集完毕。现在我来生成完整的4天郴州旅行计划JSON。\n\n```json\n{\n  \"city\": \"郴州\",\n  \"days\": 4,\n  \"schedule\": [\n    {\n      \"day\": 1,\n      \"date\": \"2026-05-01\",\n      \"attractions\": [\n        {\n          \"name\": \"郴州苏仙岭风景名胜区\",\n          \"address\": \"苏仙岭街道苏仙北路1号\",\n          \"lng\": 113.031556,\n          \"lat\": 25.802937,\n          \"visit_duration\": \"2小时\",\n          \"ticket_price\": 40,\n          \"description\": \"国家4A级景区，传说中苏仙得道升仙之地，历史文化底蕴深厚，登顶可俯瞰郴州全城\",\n          \"poi_id\": \"B023B01P04\"\n        },\n        {\n          \"name\": \"郴州博物馆\",\n          \"address\": \"五岭广场博物馆路1号\",\n          \"lng\": 113.008773,\n          \"lat\": 25.776155,\n          \"visit_duration\": \"1.5小时\",\n          \"ticket_price\": 0,\n          \"description\": \"了解郴州历史文化的最佳场所，馆藏丰富，展示湘南地区悠久历史与民俗文化\",\n          \"poi_id\": \"B0FFGP3S6H\"\n        },\n        {\n          \"name\": \"裕后街历史文化街区\",\n          \"address\": \"裕后街\",\n          \"lng\": 113.024086,\n          \"lat\": 25.787134,\n          \"visit_duration\": \"1.5小时\",\n          \"ticket_price\": 0,\n          \"description\": \"郴州最古老的历史街区，明清古建筑保存完好，青石板路，古韵悠长，美食与历史交融\",\n          \"poi_id\": \"B0FFK0P5X0\"\n        },\n        {\n          \"name\": \"北湖公园\",\n          \"address\": \"人民西路5号\",\n          \"lng\": 113.000084,\n          \"lat\": 25.793575,\n          \"visit_duration\": \"1小时\",\n          \"ticket_price\": 0,\n          \"description\": \"郴州市区最大的城市公园，湖光山色，环境优美，适合傍晚散步休闲\",\n          \"poi_id\": \"B023B0151R\"\n        }\n      ],\n      \"meals\": [\n        {\n          \"restaurant\": \"栖凤渡鱼粉(国庆南路店)\",\n          \"address\": \"国庆南路12-5号\",\n          \"lng\": 113.014862,\n          \"lat\": 25.788625,\n          \"meal_type\": \"早餐\",\n          \"estimated_cost\": 20,\n          \"recommendation\": \"栖凤渡鱼粉、杀猪粉\"\n        },\n        {\n          \"restaurant\": \"郴州味道(五岭广场店)\",\n          \"address\": \"青年大道五岭广场附近\",\n          \"lng\": 113.010625,\n          \"lat\": 25.775325,\n          \"meal_type\": \"午餐\",\n          \"estimated_cost\": 60,\n          \"recommendation\": \"东江三文鱼、临武鸭、血鸭\"\n        },\n        {\n          \"restaurant\": \"裕后街美食广场\",\n          \"address\": \"裕后街历史文化街区内\",\n          \"lng\": 113.024086,\n          \"lat\": 25.787134,\n          \"meal_type\": \"晚餐\",\n          \"estimated_cost\": 60,\n          \"recommendation\": \"烧鸡公、烤鱼、各种湘南小吃\"\n        }\n      ],\n      \"routes\": [\n        {\n          \"from_place\": \"郴州苏仙岭风景名胜区\",\n          \"to_place\": \"郴州博物馆\",\n          \"mode\": \"driving\",\n          \"distance\": \"3.5km\",\n          \"duration\": \"10分钟\"\n        },\n        {\n          \"from_place\": \"郴州博物馆\",\n          \"to_place\": \"裕后街历史文化街区\",\n          \"mode\": \"driving\",\n          \"distance\": \"2.0km\",\n          \"duration\": \"6分钟\"\n        },\n        {\n          \"from_place\": \"裕后街历史文化街区\",\n          \"to_place\": \"北湖公园\",\n          \"mode\": \"driving\",\n          \"distance\": \"2.5km\",\n          \"duration\": \"8分钟\"\n        }\n      ]\n    },\n    {\n      \"day\": 2,\n      \"date\": \"2026-05-02\",\n      \"attractions\": [\n        {\n          \"name\": \"东江湖风景旅游区\",\n          \"address\": \"东江街道迎宾路88号\",\n          \"lng\": 113.203491,\n          \"lat\": 25.863400,\n          \"visit_duration\": \"3小时\",\n          \"ticket_price\": 80,\n          \"description\": \"国家5A级景区，'人间天上一湖水，万千景象在其中'，雾漫小东江为绝美自然奇观\",\n          \"poi_id\": \"B023B01P01\"\n        },\n        {\n          \"name\": \"东江湖旅游区-兜率岛\",\n          \"address\": \"东江湖风景区内\",\n          \"lng\": 113.247786,\n          \"lat\": 25.830910,\n          \"visit_duration\": \"2小时\",\n          \"ticket_price\": 0,\n          \"description\": \"东江湖中最大的岛屿，岛上兜率灵岩溶洞钟乳石奇观，自然风光绝佳\",\n          \"poi_id\": \"B0FFGTAU69\"\n        },\n        {\n          \"name\": \"东江吊桥\",\n          \"address\": \"东江街道\",\n          \"lng\": 113.211055,\n          \"lat\": 25.866533,\n          \"visit_duration\": \"1小时\",\n          \"ticket_price\": 0,\n          \"description\": \"东江标志性景观，铁索吊桥横跨东江，傍晚时分灯光璀璨，网红打卡地\",\n          \"poi_id\": \"B0FFGBC2UJ\"\n        }\n      ],\n      \"meals\": [\n        {\n          \"restaurant\": \"栖凤渡鱼粉(东江店)\",\n          \"address\": \"东江街道望江路\",\n          \"lng\": 113.206876,\n          \"lat\": 25.864512,\n          \"meal_type\": \"早餐\",\n          \"estimated_cost\": 20,\n          \"recommendation\": \"栖凤渡鱼粉、杀猪粉\"\n        },\n        {\n          \"restaurant\": \"东江湖三文鱼美食城\",\n          \"address\": \"东江街道迎宾路东江湖游客中心附近\",\n          \"lng\": 113.203491,\n          \"lat\": 25.863400,\n          \"meal_type\": \"午餐\",\n          \"estimated_cost\": 80,\n          \"recommendation\": \"东江三文鱼刺身、清蒸翘嘴鱼、东江鱼头汤\"\n        },\n        {\n          \"restaurant\": \"东江湖农家菜馆\",\n          \"address\": \"东江街道沿江路\",\n          \"lng\": 113.208125,\n          \"lat\": 25.865325,\n          \"meal_type\": \"晚餐\",\n          \"estimated_cost\": 60,\n          \"recommendation\": \"东江鱼、农家小炒肉、时令蔬菜\"\n        }\n      ],\n      \"routes\": [\n        {\n          \"from_place\": \"东江湖风景旅游区\",\n          \"to_place\": \"兜率岛\",\n          \"mode\": \"driving\",\n          \"distance\": \"5.0km\",\n          \"duration\": \"15分钟\"\n        },\n        {\n          \"from_place\": \"兜率岛\",\n          \"to_place\": \"东江吊桥\",\n          \"mode\": \"driving\",\n          \"distance\": \"4.0km\",\n          \"duration\": \"12分钟\"\n        }\n      ]\n    },\n    {\n      \"day\": 3,\n      \"date\": \"2026-05-03\",\n      \"attractions\": [\n        {\n          \"name\": \"莽山国家森林公园\",\n          \"address\": \"莽山瑶族乡\",\n          \"lng\": 112.855365,\n          \"lat\": 24.956022,\n          \"visit_duration\": \"3.5小时\",\n          \"ticket_price\": 80,\n          \"description\": \"国家5A级景区，'中国原始生态第一山'，奇峰怪石、云海日出、原始森林，自然风光绝美\",\n          \"poi_id\": \"B023B01P06\"\n        },\n        {\n          \"name\": \"莽山五指峰景区\",\n          \"address\": \"莽山瑶族乡莽山国家森林公园内\",\n          \"lng\": 112.847289,\n          \"lat\": 24.926784,\n          \"visit_duration\": \"2.5小时\",\n          \"ticket_price\": 0,\n          \"description\": \"莽山精华所在，五指峰如五指擎天，云海翻涌，悬崖栈道惊险刺激，网红打卡地\",\n          \"poi_id\": \"B0FFK8P1K0\"\n        },\n        {\n          \"name\": \"莽山天台山\",\n          \"address\": \"莽山瑶族乡莽山国家森林公园内\",\n          \"lng\": 112.860125,\n          \"lat\": 24.948512,\n          \"visit_duration\": \"1.5小时\",\n          \"ticket_price\": 0,\n          \"description\": \"莽山最高峰之一，观云海日出的绝佳位置，自然风光壮丽\",\n          \"poi_id\": \"B023B01P0A\"\n        }\n      ],\n      \"meals\": [\n        {\n          \"restaurant\": \"莽山瑶家土菜馆\",\n          \"address\": \"莽山瑶族乡景区入口附近\",\n          \"lng\": 112.856325,\n          \"lat\": 24.958125,\n          \"meal_type\": \"早餐\",\n          \"estimated_cost\": 20,\n          \"recommendation\": \"瑶家米粉、糍粑\"\n        },\n        {\n          \"restaurant\": \"莽山森林人家餐厅\",\n          \"address\": \"莽山国家森林公园内\",\n          \"lng\": 112.855365,\n          \"lat\": 24.956022,\n          \"meal_type\": \"午餐\",\n          \"estimated_cost\": 60,\n          \"recommendation\": \"瑶家腊肉、蕨根糍粑、山笋炒肉\"\n        },\n        {\n          \"restaurant\": \"莽山瑶族风味餐厅\",\n          \"address\": \"莽山瑶族乡\",\n          \"lng\": 112.855625,\n          \"lat\": 24.957825,\n          \"meal_type\": \"晚餐\",\n          \"estimated_cost\": 60,\n          \"recommendation\": \"瑶族油茶、腊味合蒸、竹筒饭\"\n        }\n      ],\n      \"routes\": [\n        {\n          \"from_place\": \"莽山国家森林公园\",\n          \"to_place\": \"莽山五指峰景区\",\n          \"mode\": \"driving\",\n          \"distance\": \"3.0km\",\n          \"duration\": \"10分钟\"\n        },\n        {\n          \"from_place\": \"莽山五指峰景区\",\n          \"to_place\": \"莽山天台山\",\n          \"mode\": \"driving\",\n          \"distance\": \"2.0km\",\n          \"duration\": \"8分钟\"\n        }\n      ]\n    },\n    {\n      \"day\": 4,\n      \"date\": \"2026-05-04\",\n      \"attractions\": [\n        {\n          \"name\": \"仰天湖大草原\",\n          \"address\": \"仰天湖瑶族乡\",\n          \"lng\": 112.742716,\n          \"lat\": 25.521009,\n          \"visit_duration\": \"3小时\",\n          \"ticket_price\": 80,\n          \"description\": \"南国高山草原，海拔1300米，绿草如茵，风车转动，牛羊成群，被誉为'南方呼伦贝尔'\",\n          \"poi_id\": \"B0FFG7V3DH\"\n        },\n        {\n          \"name\": \"郴州长卷文化旅游区\",\n          \"address\": \"王仙岭街道\",\n          \"lng\": 113.062793,\n          \"lat\": 25.795641,\n          \"visit_duration\": \"1.5小时\",\n          \"ticket_price\": 0,\n          \"description\": \"古色古香的仿古街区，展示郴州非遗文化，建筑精美，适合拍照打卡\",\n          \"poi_id\": \"B0J2F0DZ3T\"\n        },\n        {\n          \"name\": \"五岭广场\",\n          \"address\": \"五岭路与青年大道交叉口\",\n          \"lng\": 113.008773,\n          \"lat\": 25.776155,\n          \"visit_duration\": \"1小时\",\n          \"ticket_price\": 0,\n          \"description\": \"郴州城市中心广场，周边商业繁华，适合购物休闲，结束旅程前的最后一站\",\n          \"poi_id\": \"B023B01P2E\"\n        }\n      ],\n      \"meals\": [\n        {\n          \"restaurant\": \"仰天湖草原农家乐\",\n          \"address\": \"仰天湖瑶族乡景区入口\",\n          \"lng\": 112.742716,\n          \"lat\": 25.521009,\n          \"meal_type\": \"早餐\",\n          \"estimated_cost\": 20,\n          \"recommendation\": \"农家米粉、土鸡蛋\"\n        },\n        {\n          \"restaurant\": \"郴州长卷美食街\",\n          \"address\": \"王仙岭街道郴州长卷文化旅游区内\",\n          \"lng\": 113.062793,\n          \"lat\": 25.795641,\n          \"meal_type\": \"午餐\",\n          \"estimated_cost\": 60,\n          \"recommendation\": \"临武鸭、桂阳血鸭、嘉禾豆腐\"\n        },\n        {\n          \"restaurant\": \"味美思湘菜馆(五岭广场店)\",\n          \"address\": \"青年大道五岭广场附近\",\n          \"lng\": 113.009125,\n          \"lat\": 25.777325,\n          \"meal_type\": \"晚餐\",\n          \"estimated_cost\": 60,\n          \"recommendation\": \"剁椒鱼头、小炒黄牛肉、辣椒炒肉\"\n        }\n      ],\n      \"routes\": [\n        {\n          \"from_place\": \"仰天湖大草原\",\n          \"to_place\": \"郴州长卷文化旅游区\",\n          \"mode\": \"driving\",\n          \"distance\": \"38.0km\",\n          \"duration\": \"50分钟\"\n        },\n        {\n          \"from_place\": \"郴州长卷文化旅游区\",\n          \"to_place\": \"五岭广场\",\n          \"mode\": \"driving\",\n          \"distance\": \"4.0km\",\n          \"duration\": \"10分钟\"\n        }\n      ]\n    }\n  ],\n  \"hotel\": {\n    \"name\": \"郴州国际大酒店\",\n    \"address\": \"五岭路1号(五岭广场旁)\",\n    \"lng\": 113.008773,\n    \"lat\": 25.776155,\n    \"price_per_night\": 350,\n    \"rating\": \"舒适型\"\n  },\n  \"budget\": {\n    \"tickets\": 360,\n    \"hotel\": 1400,\n    \"dining\": 580,\n    \"transportation\": 500,\n    \"total\": 2840\n  },\n  \"weather\": [\n    {\n      \"date\": \"2026-05-01\",\n      \"day_weather\": \"多云\",\n      \"night_weather\": \"阴\",\n      \"day_temp\": 24,\n      \"night_temp\": 17\n    },\n    {\n      \"date\": \"2026-05-02\",\n      \"day_weather\": \"多云\",\n      \"night_weather\": \"晴\",\n      \"day_temp\": 26,\n      \"night_temp\": 17\n    },\n    {\n      \"date\": \"2026-05-03\",\n      \"day_weather\": \"阴\",\n      \"night_weather\": \"多云\",\n      \"day_temp\": 23,\n      \"night_temp\": 15\n    },\n    {\n      \"date\": \"2026-05-04\",\n      \"day_weather\": \"晴\",\n      \"night_weather\": \"晴\",\n      \"day_temp\": 27,\n      \"night_temp\": 18\n    }\n  ],\n  \"tips\": [\n    \"五一期间郴州游客较多，建议提前7天预订酒店和热门景区门票\",\n    \"东江湖雾漫小东江最佳观赏时间为清晨6:00-8:00，建议5月2日早起前往，仙境般的美景\",\n    \"莽山国家森林公园距离市区约130公里（驾车约2小时），建议5月3日一早出发\",\n    \"仰天湖大草原海拔较高（1300米），山路蜿蜒，驾车需注意安全，建议SUV车型\",\n    \"郴州美食以湘菜为主，栖凤渡鱼粉和杀猪粉是必吃的早餐，东江三文鱼是特色菜\",\n    \"莽山五指峰有悬崖栈道和电梯，恐高者需谨慎，但景色绝美值得挑战\",\n    \"5月初郴州天气温暖舒适，但莽山和仰天湖海拔较高，温度偏低，建议携带外套\",\n    \"裕后街是郴州最值得逛的历史街区，晚上比白天更有韵味\",\n    \"预算5000元，实际花费约2840元，剩余预算充裕，可购买郴州特产（东江鱼、临武鸭、桂阳烟叶等）\"\n  ]\n}\n```",
+  "tool_calls": 0,
+  "usage": {
+    "prompt_tokens": 19931,
+    "completion_tokens": 3859,
+    "total_tokens": 23790
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="event-header">
+                <span class="step">Step -</span>
+                <span class="timestamp">2026-05-03T16:30:32.481432</span>
+                <span class="event-type">session_end</span>
+                <span class="expandable" onclick="toggleDetails('details-4')">[▼ 详情]</span>
+            </div>
+            <div id="details-4" class="details">
+                <pre>{
+  "duration": 49.486417,
+  "total_steps": 1,
+  "final_answer": "好的，信息收集完毕。现在我来生成完整的4天郴州旅行计划JSON。\n\n```json\n{\n  \"city\": \"郴州\",\n  \"days\": 4,\n  \"schedule\": [\n    {\n      \"day\": 1,\n      \"date\": \"2026-05-01\",\n      \"attractions\": [\n        {\n          \"name\": \"郴州苏仙岭风景名胜区\",\n          \"address\": \"苏仙岭街道苏仙北路1号\",\n          \"lng\": 113.031556,\n          \"lat\": 25.802937,\n          \"visit_duration\": \"2小时\",\n          \"ticket_price\": 40,\n          \"description\": \"国家4A级景区，传说中苏仙得道升仙之地，历史文化底蕴深厚，登顶可俯瞰郴州全城\",\n          \"poi_id\": \"B023B01P04\"\n        },\n        {\n          \"name\": \"郴州博物馆\",\n          \"address\": \"五岭广场博物馆路1号\",\n          \"lng\": 113.008773,\n          \"lat\": 25.776155,\n          \"visit_duration\": \"1.5小时\",\n          \"ticket_price\": 0,\n          \"description\": \"了解郴州历史文化的最佳场所，馆藏丰富，展示湘南地区悠久历史与民俗文化\",\n          \"poi_id\": \"B0FFGP3S6H\"\n        },\n        {\n          \"name\": \"裕后街历史文化街区\",\n          \"address\": \"裕后街\",\n          \"lng\": 113.024086,\n          \"lat\": 25.787134,\n          \"visit_duration\": \"1.5小时\",\n          \"ticket_price\": 0,\n          \"description\": \"郴州最古老的历史街区，明清古建筑保存完好，青石板路，古韵悠长，美食与历史交融\",\n          \"poi_id\": \"B0FFK0P5X0\"\n        },\n        {\n          \"name\": \"北湖公园\",\n          \"address\": \"人民西路5号\",\n          \"lng\": 113.000084,\n          \"lat\": 25.793575,\n          \"visit_duration\": \"1小时\",\n          \"ticket_price\": 0,\n          \"description\": \"郴州市区最大的城市公园，湖光山色，环境优美，适合傍晚散步休闲\",\n          \"poi_id\": \"B023B0151R\"\n        }\n      ],\n      \"meals\": [\n        {\n          \"restaurant\": \"栖凤渡鱼粉(国庆南路店)\",\n          \"address\": \"国庆南路12-5号\",\n          \"lng\": 113.014862,\n          \"lat\": 25.788625,\n          \"meal_type\": \"早餐\",\n          \"estimated_cost\": 20,\n          \"recommendation\": \"栖凤渡鱼粉、杀猪粉\"\n        },\n        {\n          \"restaurant\": \"郴州味道(五岭广场店)\",\n          \"address\": \"青年大道五岭广场附近\",\n          \"lng\": 113.010625,\n          \"lat\": 25.775325,\n          \"meal_type\": \"午餐\",\n          \"estimated_cost\": 60,\n          \"recommendation\": \"东江三文鱼、临武鸭、血鸭\"\n        },\n        {\n          \"restaurant\": \"裕后街美食广场\",\n          \"address\": \"裕后街历史文化街区内\",\n          \"lng\": 113.024086,\n          \"lat\": 25.787134,\n          \"meal_type\": \"晚餐\",\n          \"estimated_cost\": 60,\n          \"recommendation\": \"烧鸡公、烤鱼、各种湘南小吃\"\n        }\n      ],\n      \"routes\": [\n        {\n          \"from_place\": \"郴州苏仙岭风景名胜区\",\n          \"to_place\": \"郴州博物馆\",\n          \"mode\": \"driving\",\n          \"distance\": \"3.5km\",\n          \"duration\": \"10分钟\"\n        },\n        {\n          \"from_place\": \"郴州博物馆\",\n          \"to_place\": \"裕后街历史文化街区\",\n          \"mode\": \"driving\",\n          \"distance\": \"2.0km\",\n          \"duration\": \"6分钟\"\n        },\n        {\n          \"from_place\": \"裕后街历史文化街区\",\n          \"to_place\": \"北湖公园\",\n          \"mode\": \"driving\",\n          \"distance\": \"2.5km\",\n          \"duration\": \"8分钟\"\n        }\n      ]\n    },\n    {\n      \"day\": 2,\n      \"date\": \"2026-05-02\",\n      \"attractions\": [\n        {\n          \"name\": \"东江湖风景旅游区\",\n          \"address\": \"东江街道迎宾路88号\",\n          \"lng\": 113.203491,\n          \"lat\": 25.863400,\n          \"visit_duration\": \"3小时\",\n          \"ticket_price\": 80,\n          \"description\": \"国家5A级景区，'人间天上一湖水，万千景象在其中'，雾漫小东江为绝美自然奇观\",\n          \"poi_id\": \"B023B01P01\"\n        },\n        {\n          \"name\": \"东江湖旅游区-兜率岛\",\n          \"address\": \"东江湖风景区内\",\n          \"lng\": 113.247786,\n          \"lat\": 25.830910,\n          \"visit_duration\": \"2小时\",\n          \"ticket_price\": 0,\n          \"description\": \"东江湖中最大的岛屿，岛上兜率灵岩溶洞钟乳石奇观，自然风光绝佳\",\n          \"poi_id\": \"B0FFGTAU69\"\n        },\n        {\n          \"name\": \"东江吊桥\",\n          \"address\": \"东江街道\",\n          \"lng\": 113.211055,\n          \"lat\": 25.866533,\n          \"visit_duration\": \"1小时\",\n          \"ticket_price\": 0,\n          \"description\": \"东江标志性景观，铁索吊桥横跨东江，傍晚时分灯光璀璨，网红打卡地\",\n          \"poi_id\": \"B0FFGBC2UJ\"\n        }\n      ],\n      \"meals\": [\n        {\n          \"restaurant\": \"栖凤渡鱼粉(东江店)\",\n          \"address\": \"东江街道望江路\",\n          \"lng\": 113.206876,\n          \"lat\": 25.864512,\n          \"meal_type\": \"早餐\",\n          \"estimated_cost\": 20,\n          \"recommendation\": \"栖凤渡鱼粉、杀猪粉\"\n        },\n        {\n          \"restaurant\": \"东江湖三文鱼美食城\",\n          \"address\": \"东江街道迎宾路东江湖游客中心附近\",\n          \"lng\": 113.203491,\n          \"lat\": 25.863400,\n          \"meal_type\": \"午餐\",\n          \"estimated_cost\": 80,\n          \"recommendation\": \"东江三文鱼刺身、清蒸翘嘴鱼、东江鱼头汤\"\n        },\n        {\n          \"restaurant\": \"东江湖农家菜馆\",\n          \"address\": \"东江街道沿江路\",\n          \"lng\": 113.208125,\n          \"lat\": 25.865325,\n          \"meal_type\": \"晚餐\",\n          \"estimated_cost\": 60,\n          \"recommendation\": \"东江鱼、农家小炒肉、时令蔬菜\"\n        }\n      ],\n      \"routes\": [\n        {\n          \"from_place\": \"东江湖风景旅游区\",\n          \"to_place\": \"兜率岛\",\n          \"mode\": \"driving\",\n          \"distance\": \"5.0km\",\n          \"duration\": \"15分钟\"\n        },\n        {\n          \"from_place\": \"兜率岛\",\n          \"to_place\": \"东江吊桥\",\n          \"mode\": \"driving\",\n          \"distance\": \"4.0km\",\n          \"duration\": \"12分钟\"\n        }\n      ]\n    },\n    {\n      \"day\": 3,\n      \"date\": \"2026-05-03\",\n      \"attractions\": [\n        {\n          \"name\": \"莽山国家森林公园\",\n          \"address\": \"莽山瑶族乡\",\n          \"lng\": 112.855365,\n          \"lat\": 24.956022,\n          \"visit_duration\": \"3.5小时\",\n          \"ticket_price\": 80,\n          \"description\": \"国家5A级景区，'中国原始生态第一山'，奇峰怪石、云海日出、原始森林，自然风光绝美\",\n          \"poi_id\": \"B023B01P06\"\n        },\n        {\n          \"name\": \"莽山五指峰景区\",\n          \"address\": \"莽山瑶族乡莽山国家森林公园内\",\n          \"lng\": 112.847289,\n          \"lat\": 24.926784,\n          \"visit_duration\": \"2.5小时\",\n          \"ticket_price\": 0,\n          \"description\": \"莽山精华所在，五指峰如五指擎天，云海翻涌，悬崖栈道惊险刺激，网红打卡地\",\n          \"poi_id\": \"B0FFK8P1K0\"\n        },\n        {\n          \"name\": \"莽山天台山\",\n          \"address\": \"莽山瑶族乡莽山国家森林公园内\",\n          \"lng\": 112.860125,\n          \"lat\": 24.948512,\n          \"visit_duration\": \"1.5小时\",\n          \"ticket_price\": 0,\n          \"description\": \"莽山最高峰之一，观云海日出的绝佳位置，自然风光壮丽\",\n          \"poi_id\": \"B023B01P0A\"\n        }\n      ],\n      \"meals\": [\n        {\n          \"restaurant\": \"莽山瑶家土菜馆\",\n          \"address\": \"莽山瑶族乡景区入口附近\",\n          \"lng\": 112.856325,\n          \"lat\": 24.958125,\n          \"meal_type\": \"早餐\",\n          \"estimated_cost\": 20,\n          \"recommendation\": \"瑶家米粉、糍粑\"\n        },\n        {\n          \"restaurant\": \"莽山森林人家餐厅\",\n          \"address\": \"莽山国家森林公园内\",\n          \"lng\": 112.855365,\n          \"lat\": 24.956022,\n          \"meal_type\": \"午餐\",\n          \"estimated_cost\": 60,\n          \"recommendation\": \"瑶家腊肉、蕨根糍粑、山笋炒肉\"\n        },\n        {\n          \"restaurant\": \"莽山瑶族风味餐厅\",\n          \"address\": \"莽山瑶族乡\",\n          \"lng\": 112.855625,\n          \"lat\": 24.957825,\n          \"meal_type\": \"晚餐\",\n          \"estimated_cost\": 60,\n          \"recommendation\": \"瑶族油茶、腊味合蒸、竹筒饭\"\n        }\n      ],\n      \"routes\": [\n        {\n          \"from_place\": \"莽山国家森林公园\",\n          \"to_place\": \"莽山五指峰景区\",\n          \"mode\": \"driving\",\n          \"distance\": \"3.0km\",\n          \"duration\": \"10分钟\"\n        },\n        {\n          \"from_place\": \"莽山五指峰景区\",\n          \"to_place\": \"莽山天台山\",\n          \"mode\": \"driving\",\n          \"distance\": \"2.0km\",\n          \"duration\": \"8分钟\"\n        }\n      ]\n    },\n    {\n      \"day\": 4,\n      \"date\": \"2026-05-04\",\n      \"attractions\": [\n        {\n          \"name\": \"仰天湖大草原\",\n          \"address\": \"仰天湖瑶族乡\",\n          \"lng\": 112.742716,\n          \"lat\": 25.521009,\n          \"visit_duration\": \"3小时\",\n          \"ticket_price\": 80,\n          \"description\": \"南国高山草原，海拔1300米，绿草如茵，风车转动，牛羊成群，被誉为'南方呼伦贝尔'\",\n          \"poi_id\": \"B0FFG7V3DH\"\n        },\n        {\n          \"name\": \"郴州长卷文化旅游区\",\n          \"address\": \"王仙岭街道\",\n          \"lng\": 113.062793,\n          \"lat\": 25.795641,\n          \"visit_duration\": \"1.5小时\",\n          \"ticket_price\": 0,\n          \"description\": \"古色古香的仿古街区，展示郴州非遗文化，建筑精美，适合拍照打卡\",\n          \"poi_id\": \"B0J2F0DZ3T\"\n        },\n        {\n          \"name\": \"五岭广场\",\n          \"address\": \"五岭路与青年大道交叉口\",\n          \"lng\": 113.008773,\n          \"lat\": 25.776155,\n          \"visit_duration\": \"1小时\",\n          \"ticket_price\": 0,\n          \"description\": \"郴州城市中心广场，周边商业繁华，适合购物休闲，结束旅程前的最后一站\",\n          \"poi_id\": \"B023B01P2E\"\n        }\n      ],\n      \"meals\": [\n        {\n          \"restaurant\": \"仰天湖草原农家乐\",\n          \"address\": \"仰天湖瑶族乡景区入口\",\n          \"lng\": 112.742716,\n          \"lat\": 25.521009,\n          \"meal_type\": \"早餐\",\n          \"estimated_cost\": 20,\n          \"recommendation\": \"农家米粉、土鸡蛋\"\n        },\n        {\n          \"restaurant\": \"郴州长卷美食街\",\n          \"address\": \"王仙岭街道郴州长卷文化旅游区内\",\n          \"lng\": 113.062793,\n          \"lat\": 25.795641,\n          \"meal_type\": \"午餐\",\n          \"estimated_cost\": 60,\n          \"recommendation\": \"临武鸭、桂阳血鸭、嘉禾豆腐\"\n        },\n        {\n          \"restaurant\": \"味美思湘菜馆(五岭广场店)\",\n          \"address\": \"青年大道五岭广场附近\",\n          \"lng\": 113.009125,\n          \"lat\": 25.777325,\n          \"meal_type\": \"晚餐\",\n          \"estimated_cost\": 60,\n          \"recommendation\": \"剁椒鱼头、小炒黄牛肉、辣椒炒肉\"\n        }\n      ],\n      \"routes\": [\n        {\n          \"from_place\": \"仰天湖大草原\",\n          \"to_place\": \"郴州长卷文化旅游区\",\n          \"mode\": \"driving\",\n          \"distance\": \"38.0km\",\n          \"duration\": \"50分钟\"\n        },\n        {\n          \"from_place\": \"郴州长卷文化旅游区\",\n          \"to_place\": \"五岭广场\",\n          \"mode\": \"driving\",\n          \"distance\": \"4.0km\",\n          \"duration\": \"10分钟\"\n        }\n      ]\n    }\n  ],\n  \"hotel\": {\n    \"name\": \"郴州国际大酒店\",\n    \"address\": \"五岭路1号(五岭广场旁)\",\n    \"lng\": 113.008773,\n    \"lat\": 25.776155,\n    \"price_per_night\": 350,\n    \"rating\": \"舒适型\"\n  },\n  \"budget\": {\n    \"tickets\": 360,\n    \"hotel\": 1400,\n    \"dining\": 580,\n    \"transportation\": 500,\n    \"total\": 2840\n  },\n  \"weather\": [\n    {\n      \"date\": \"2026-05-01\",\n      \"day_weather\": \"多云\",\n      \"night_weather\": \"阴\",\n      \"day_temp\": 24,\n      \"night_temp\": 17\n    },\n    {\n      \"date\": \"2026-05-02\",\n      \"day_weather\": \"多云\",\n      \"night_weather\": \"晴\",\n      \"day_temp\": 26,\n      \"night_temp\": 17\n    },\n    {\n      \"date\": \"2026-05-03\",\n      \"day_weather\": \"阴\",\n      \"night_weather\": \"多云\",\n      \"day_temp\": 23,\n      \"night_temp\": 15\n    },\n    {\n      \"date\": \"2026-05-04\",\n      \"day_weather\": \"晴\",\n      \"night_weather\": \"晴\",\n      \"day_temp\": 27,\n      \"night_temp\": 18\n    }\n  ],\n  \"tips\": [\n    \"五一期间郴州游客较多，建议提前7天预订酒店和热门景区门票\",\n    \"东江湖雾漫小东江最佳观赏时间为清晨6:00-8:00，建议5月2日早起前往，仙境般的美景\",\n    \"莽山国家森林公园距离市区约130公里（驾车约2小时），建议5月3日一早出发\",\n    \"仰天湖大草原海拔较高（1300米），山路蜿蜒，驾车需注意安全，建议SUV车型\",\n    \"郴州美食以湘菜为主，栖凤渡鱼粉和杀猪粉是必吃的早餐，东江三文鱼是特色菜\",\n    \"莽山五指峰有悬崖栈道和电梯，恐高者需谨慎，但景色绝美值得挑战\",\n    \"5月初郴州天气温暖舒适，但莽山和仰天湖海拔较高，温度偏低，建议携带外套\",\n    \"裕后街是郴州最值得逛的历史街区，晚上比白天更有韵味\",\n    \"预算5000元，实际花费约2840元，剩余预算充裕，可购买郴州特产（东江鱼、临武鸭、桂阳烟叶等）\"\n  ]\n}\n```",
+  "status": "success"
+}</pre>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="stats-panel">
+        <h2>📊 会话统计</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-label">总步骤数</span>
+                <span class="stat-value">1</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">总 Token</span>
+                <span class="stat-value">23,790</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">总成本</span>
+                <span class="stat-value">$0.0000</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">会话时长</span>
+                <span class="stat-value">49.5s</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">模型调用次数</span>
+                <span class="stat-value">1</span>
+            </div>
+        </div>
+
+        <h3>🔧 工具调用统计</h3>
+        <table class="tool-stats">
+            <tr><th>工具名称</th><th>调用次数</th></tr>
+            <tr><td colspan="2">无工具调用</td></tr>
+        </table>
+
+        
+    </div>
+
+    <script>
+        function toggleDetails(id) {
+            const el = document.getElementById(id);
+            if (el.style.display === 'none' || el.style.display === '') {
+                el.style.display = 'block';
+            } else {
+                el.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Trace: s-20260503-164717-b746</title>
+    <style>
+        body {
+            font-family: 'Consolas', 'Monaco', monospace;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            margin: 0;
+        }
+        .header {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0 0 10px 0;
+            color: #4af626;
+        }
+        .stats-panel {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .stat-item {
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #4af626;
+        }
+        .stat-label {
+            display: block;
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        .stat-value {
+            display: block;
+            color: #e0e0e0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .tool-stats {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .tool-stats th, .tool-stats td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+        .tool-stats th {
+            color: #4af626;
+        }
+        .error-list {
+            list-style: none;
+            padding: 0;
+        }
+        .error-list li {
+            background: #331111;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border-left: 3px solid #ff4444;
+        }
+        .events-container {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .event {
+            border: 1px solid #333;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            background: #1a1a1a;
+        }
+        .event-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .step {
+            color: #888;
+            font-size: 12px;
+        }
+        .timestamp {
+            color: #666;
+            font-size: 11px;
+        }
+        .event-type {
+            color: #4af626;
+            font-weight: bold;
+        }
+        .expandable {
+            cursor: pointer;
+            color: #4af626;
+            user-select: none;
+        }
+        .expandable:hover {
+            color: #6fff48;
+        }
+        .details {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #0d0d0d;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .details pre {
+            margin: 0;
+            color: #e0e0e0;
+        }
+        .tool-call {
+            border-left: 3px solid #4af626;
+        }
+        .tool-result {
+            border-left: 3px solid #ffd700;
+        }
+        .error {
+            border-left: 3px solid #ff4444;
+            background: #2a1a1a;
+        }
+        .model-output {
+            border-left: 3px solid #00bfff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔍 Trace Session: s-20260503-164717-b746</h1>
+        <p>生成时间: 2026-05-03 16:47:17</p>
+    </div>
+
+    <div class="events-container">
+        <h2>📋 事件列表</h2>
+
+        <div class="event">
+            <div class="event-header">
+                <span class="step">Step -</span>
+                <span class="timestamp">2026-05-03T16:47:17.717002</span>
+                <span class="event-type">session_start</span>
+                <span class="expandable" onclick="toggleDetails('details-1')">[▼ 详情]</span>
+            </div>
+            <div id="details-1" class="details">
+                <pre>{
+  "agent_name": "旅行规划助手",
+  "agent_type": "SimpleAgent"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="event-header">
+                <span class="step">Step -</span>
+                <span class="timestamp">2026-05-03T16:47:17.717002</span>
+                <span class="event-type">message_written</span>
+                <span class="expandable" onclick="toggleDetails('details-2')">[▼ 详情]</span>
+            </div>
+            <div id="details-2" class="details">
+                <pre>{
+  "role": "user",
+  "content": "请为我规划一次 成都 的 2 天旅行：\n- 出发日期：2026-05-10\n- 总预算：2000.0 元\n- 偏好：美食之旅\n- 交通方式：transit\n- 酒店偏好：舒适型\n\n请严格按照输出格式生成完整的旅行计划 JSON。"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event model-output">
+            <div class="event-header">
+                <span class="step">Step 1</span>
+                <span class="timestamp">2026-05-03T16:47:49.463642</span>
+                <span class="event-type">model_output</span>
+                <span class="expandable" onclick="toggleDetails('details-3')">[▼ 详情]</span>
+            </div>
+            <div id="details-3" class="details">
+                <pre>{
+  "content": "好的，信息收集完毕。现在我来生成完整的2天成都美食之旅旅行计划JSON。\n\n```json\n{\n  \"city\": \"成都\",\n  \"days\": 2,\n  \"schedule\": [\n    {\n      \"day\": 1,\n      \"date\": \"2026-05-10\",\n      \"attractions\": [\n        {\n          \"name\": \"宽窄巷子\",\n          \"address\": \"长顺上街(人民公园地铁站D1口步行590米)\",\n          \"lng\": 104.056789,\n          \"lat\": 30.665389,\n          \"visit_duration\": \"1.5小时\",\n          \"ticket_price\": 0,\n          \"description\": \"成都最具代表性的历史文化街区，宽巷子老成都慢生活，窄巷子时尚文艺，美食与文化交融\",\n          \"poi_id\": \"B023B04G0L\"\n        },\n        {\n          \"name\": \"人民公园\",\n          \"address\": \"少城路12号(人民公园地铁站B口步行190米)\",\n          \"lng\": 104.058035,\n          \"lat\": 30.661436,\n          \"visit_duration\": \"1.5小时\",\n          \"ticket_price\": 0,\n          \"description\": \"成都慢生活典范，喝盖碗茶、掏耳朵、看川剧，感受成都人的悠闲生活节奏\",\n          \"poi_id\": \"B023B04G0M\"\n        },\n        {\n          \"name\": \"锦里古街\",\n          \"address\": \"武侯祠大街231号附1号(高升桥地铁站D口步行1.1公里)\",\n          \"lng\": 104.047104,\n          \"lat\": 30.643534,\n          \"visit_duration\": \"1.5小时\",\n          \"ticket_price\": 0,\n          \"description\": \"三国文化主题古街，红灯笼、青砖黛瓦，美食小吃琳琅满目，夜晚更加迷人\",\n          \"poi_id\": \"B023B04G0N\"\n        },\n        {\n          \"name\": \"武侯祠博物馆\",\n          \"address\": \"武侯祠大街231号(高升桥地铁站D口步行1.1公里)\",\n          \"lng\": 104.047104,\n          \"lat\": 30.643534,\n          \"visit_duration\": \"1.5小时\",\n          \"ticket_price\": 50,\n          \"description\": \"中国唯一君臣合祀祠庙，纪念诸葛亮和刘备，三国文化圣地，红墙竹影极具韵味\",\n          \"poi_id\": \"B023B04G0O\"\n        }\n      ],\n      \"meals\": [\n        {\n          \"restaurant\": \"西月城谭豆花(小南街店)\",\n          \"address\": \"小南街23号(人民公园地铁站A口步行210米)\",\n          \"lng\": 104.056375,\n          \"lat\": 30.660125,\n          \"meal_type\": \"早餐\",\n          \"estimated_cost\": 20,\n          \"recommendation\": \"冰醉豆花、甜水面、担担面\"\n        },\n        {\n          \"restaurant\": \"陈麻婆豆腐(骡马市店)\",\n          \"address\": \"西玉龙街197号(骡马市地铁站F口步行200米)\",\n          \"lng\": 104.068912,\n          \"lat\": 30.672413,\n          \"meal_type\": \"午餐\",\n          \"estimated_cost\": 60,\n          \"recommendation\": \"麻婆豆腐、宫保鸡丁、回锅肉\"\n        },\n        {\n          \"restaurant\": \"小龙坎老火锅(春熙路店)\",\n          \"address\": \"东大街下东大街段36号(春熙路地铁站E2口步行300米)\",\n          \"lng\": 104.082625,\n          \"lat\": 30.652325,\n          \"meal_type\": \"晚餐\",\n          \"estimated_cost\": 100,\n          \"recommendation\": \"牛油红锅、毛肚、鹅肠、麻辣牛肉\"\n        }\n      ],\n      \"routes\": [\n        {\n          \"from_place\": \"宽窄巷子\",\n          \"to_place\": \"人民公园\",\n          \"mode\": \"transit\",\n          \"distance\": \"0.8km\",\n          \"duration\": \"10分钟\"\n        },\n        {\n          \"from_place\": \"人民公园\",\n          \"to_place\": \"锦里古街\",\n          \"mode\": \"transit\",\n          \"distance\": \"2.5km\",\n          \"duration\": \"15分钟\"\n        },\n        {\n          \"from_place\": \"锦里古街\",\n          \"to_place\": \"武侯祠博物馆\",\n          \"mode\": \"transit\",\n          \"distance\": \"0.2km\",\n          \"duration\": \"3分钟\"\n        }\n      ]\n    },\n    {\n      \"day\": 2,\n      \"date\": \"2026-05-11\",\n      \"attractions\": [\n        {\n          \"name\": \"成都大熊猫繁育研究基地\",\n          \"address\": \"熊猫大道1375号(熊猫大道地铁站A口步行1.2公里)\",\n          \"lng\": 104.145008,\n          \"lat\": 30.733841,\n          \"visit_duration\": \"3小时\",\n          \"ticket_price\": 55,\n          \"description\": \"全球最著名的大熊猫保护基地，近距离观看国宝大熊猫，萌态可掬，网红打卡必去\",\n          \"poi_id\": \"B023B04G0P\"\n        },\n        {\n          \"name\": \"春熙路步行街\",\n          \"address\": \"春熙路(春熙路地铁站)\",\n          \"lng\": 104.082625,\n          \"lat\": 30.652325,\n          \"visit_duration\": \"1小时\",\n          \"ticket_price\": 0,\n          \"description\": \"成都最繁华的商业街，时尚潮流聚集地，IFS熊猫爬墙是网红打卡地标\",\n          \"poi_id\": \"B023B04G0Q\"\n        },\n        {\n          \"name\": \"太古里\",\n          \"address\": \"中纱帽街8号(春熙路地铁站C口步行200米)\",\n          \"lng\": 104.083625,\n          \"lat\": 30.652125,\n          \"visit_duration\": \"1.5小时\",\n          \"ticket_price\": 0,\n          \"description\": \"开放式街区购物中心，传统川西建筑与现代时尚完美融合，网红餐厅和潮牌云集\",\n          \"poi_id\": \"B023B04G0R\"\n        }\n      ],\n      \"meals\": [\n        {\n          \"restaurant\": \"洞子口张老二凉粉(文殊院店)\",\n          \"address\": \"文殊院街39号(文殊院地铁站K口步行320米)\",\n          \"lng\": 104.078125,\n          \"lat\": 30.681325,\n          \"meal_type\": \"早餐\",\n          \"estimated_cost\": 15,\n          \"recommendation\": \"甜水面、凉粉、锅盔\"\n        },\n        {\n          \"restaurant\": \"马旺子川菜馆(太古里店)\",\n          \"address\": \"东糠市街1号(春熙路地铁站E2口步行400米)\",\n          \"lng\": 104.082875,\n          \"lat\": 30.651875,\n          \"meal_type\": \"午餐\",\n          \"estimated_cost\": 80,\n          \"recommendation\": \"水煮鱼、夫妻肺片、毛血旺\"\n        },\n        {\n          \"restaurant\": \"大龙燚火锅(太古里店)\",\n          \"address\": \"东大街下东大街段166号(春熙路地铁站E2口步行350米)\",\n          \"lng\": 104.082925,\n          \"lat\": 30.652625,\n          \"meal_type\": \"晚餐\",\n          \"estimated_cost\": 100,\n          \"recommendation\": \"麻辣锅底、鲜鸭血、黄喉、酥肉\"\n        }\n      ],\n      \"routes\": [\n        {\n          \"from_place\": \"成都大熊猫繁育研究基地\",\n          \"to_place\": \"春熙路步行街\",\n          \"mode\": \"transit\",\n          \"distance\": \"12.0km\",\n          \"duration\": \"40分钟\"\n        },\n        {\n          \"from_place\": \"春熙路步行街\",\n          \"to_place\": \"太古里\",\n          \"mode\": \"transit\",\n          \"distance\": \"0.3km\",\n          \"duration\": \"5分钟\"\n        }\n      ]\n    }\n  ],\n  \"hotel\": {\n    \"name\": \"全季酒店(成都宽窄巷子店)\",\n    \"address\": \"长顺下街128号(宽窄巷子地铁站D口步行550米)\",\n    \"lng\": 104.055625,\n    \"lat\": 30.666125,\n    \"price_per_night\": 380,\n    \"rating\": \"舒适型\"\n  },\n  \"budget\": {\n    \"tickets\": 105,\n    \"hotel\": 380,\n    \"dining\": 375,\n    \"transportation\": 60,\n    \"total\": 920\n  },\n  \"weather\": [\n    {\n      \"date\": \"2026-05-10\",\n      \"day_weather\": \"多云\",\n      \"night_weather\": \"晴\",\n      \"day_temp\": 25,\n      \"night_temp\": 17\n    },\n    {\n      \"date\": \"2026-05-11\",\n      \"day_weather\": \"晴\",\n      \"night_weather\": \"多云\",\n      \"day_temp\": 27,\n      \"night_temp\": 18\n    }\n  ],\n  \"tips\": [\n    \"成都大熊猫繁育研究基地建议早上7:30开门就入园，熊猫最活跃，中午会睡觉\",\n    \"宽窄巷子和锦里适合晚上逛，夜景更美，小吃更多\",\n    \"陈麻婆豆腐是成都必吃经典，麻婆豆腐麻辣鲜香，人均60元性价比很高\",\n    \"小龙坎和大龙燚是成都火锅代表，建议点微辣锅底，外地人也能接受\",\n    \"人民公园的鹤鸣茶社是体验成都慢生活的最佳去处，盖碗茶15元一杯\",\n    \"太古里IFS的熊猫爬墙是网红打卡地标，在商场7楼可以拍到正面\",\n    \"文殊院门口的洞子口张老二凉粉是地道成都小吃，甜水面必吃\",\n    \"成都地铁非常发达，建议下载成都地铁APP扫码乘车，方便快捷\",\n    \"预算2000元，实际花费约920元，剩余预算可购买火锅底料、兔头等成都特产\"\n  ]\n}\n```",
+  "tool_calls": 0,
+  "usage": {
+    "prompt_tokens": 39599,
+    "completion_tokens": 2326,
+    "total_tokens": 41925
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="event-header">
+                <span class="step">Step -</span>
+                <span class="timestamp">2026-05-03T16:47:49.464652</span>
+                <span class="event-type">session_end</span>
+                <span class="expandable" onclick="toggleDetails('details-4')">[▼ 详情]</span>
+            </div>
+            <div id="details-4" class="details">
+                <pre>{
+  "duration": 31.748649,
+  "total_steps": 1,
+  "final_answer": "好的，信息收集完毕。现在我来生成完整的2天成都美食之旅旅行计划JSON。\n\n```json\n{\n  \"city\": \"成都\",\n  \"days\": 2,\n  \"schedule\": [\n    {\n      \"day\": 1,\n      \"date\": \"2026-05-10\",\n      \"attractions\": [\n        {\n          \"name\": \"宽窄巷子\",\n          \"address\": \"长顺上街(人民公园地铁站D1口步行590米)\",\n          \"lng\": 104.056789,\n          \"lat\": 30.665389,\n          \"visit_duration\": \"1.5小时\",\n          \"ticket_price\": 0,\n          \"description\": \"成都最具代表性的历史文化街区，宽巷子老成都慢生活，窄巷子时尚文艺，美食与文化交融\",\n          \"poi_id\": \"B023B04G0L\"\n        },\n        {\n          \"name\": \"人民公园\",\n          \"address\": \"少城路12号(人民公园地铁站B口步行190米)\",\n          \"lng\": 104.058035,\n          \"lat\": 30.661436,\n          \"visit_duration\": \"1.5小时\",\n          \"ticket_price\": 0,\n          \"description\": \"成都慢生活典范，喝盖碗茶、掏耳朵、看川剧，感受成都人的悠闲生活节奏\",\n          \"poi_id\": \"B023B04G0M\"\n        },\n        {\n          \"name\": \"锦里古街\",\n          \"address\": \"武侯祠大街231号附1号(高升桥地铁站D口步行1.1公里)\",\n          \"lng\": 104.047104,\n          \"lat\": 30.643534,\n          \"visit_duration\": \"1.5小时\",\n          \"ticket_price\": 0,\n          \"description\": \"三国文化主题古街，红灯笼、青砖黛瓦，美食小吃琳琅满目，夜晚更加迷人\",\n          \"poi_id\": \"B023B04G0N\"\n        },\n        {\n          \"name\": \"武侯祠博物馆\",\n          \"address\": \"武侯祠大街231号(高升桥地铁站D口步行1.1公里)\",\n          \"lng\": 104.047104,\n          \"lat\": 30.643534,\n          \"visit_duration\": \"1.5小时\",\n          \"ticket_price\": 50,\n          \"description\": \"中国唯一君臣合祀祠庙，纪念诸葛亮和刘备，三国文化圣地，红墙竹影极具韵味\",\n          \"poi_id\": \"B023B04G0O\"\n        }\n      ],\n      \"meals\": [\n        {\n          \"restaurant\": \"西月城谭豆花(小南街店)\",\n          \"address\": \"小南街23号(人民公园地铁站A口步行210米)\",\n          \"lng\": 104.056375,\n          \"lat\": 30.660125,\n          \"meal_type\": \"早餐\",\n          \"estimated_cost\": 20,\n          \"recommendation\": \"冰醉豆花、甜水面、担担面\"\n        },\n        {\n          \"restaurant\": \"陈麻婆豆腐(骡马市店)\",\n          \"address\": \"西玉龙街197号(骡马市地铁站F口步行200米)\",\n          \"lng\": 104.068912,\n          \"lat\": 30.672413,\n          \"meal_type\": \"午餐\",\n          \"estimated_cost\": 60,\n          \"recommendation\": \"麻婆豆腐、宫保鸡丁、回锅肉\"\n        },\n        {\n          \"restaurant\": \"小龙坎老火锅(春熙路店)\",\n          \"address\": \"东大街下东大街段36号(春熙路地铁站E2口步行300米)\",\n          \"lng\": 104.082625,\n          \"lat\": 30.652325,\n          \"meal_type\": \"晚餐\",\n          \"estimated_cost\": 100,\n          \"recommendation\": \"牛油红锅、毛肚、鹅肠、麻辣牛肉\"\n        }\n      ],\n      \"routes\": [\n        {\n          \"from_place\": \"宽窄巷子\",\n          \"to_place\": \"人民公园\",\n          \"mode\": \"transit\",\n          \"distance\": \"0.8km\",\n          \"duration\": \"10分钟\"\n        },\n        {\n          \"from_place\": \"人民公园\",\n          \"to_place\": \"锦里古街\",\n          \"mode\": \"transit\",\n          \"distance\": \"2.5km\",\n          \"duration\": \"15分钟\"\n        },\n        {\n          \"from_place\": \"锦里古街\",\n          \"to_place\": \"武侯祠博物馆\",\n          \"mode\": \"transit\",\n          \"distance\": \"0.2km\",\n          \"duration\": \"3分钟\"\n        }\n      ]\n    },\n    {\n      \"day\": 2,\n      \"date\": \"2026-05-11\",\n      \"attractions\": [\n        {\n          \"name\": \"成都大熊猫繁育研究基地\",\n          \"address\": \"熊猫大道1375号(熊猫大道地铁站A口步行1.2公里)\",\n          \"lng\": 104.145008,\n          \"lat\": 30.733841,\n          \"visit_duration\": \"3小时\",\n          \"ticket_price\": 55,\n          \"description\": \"全球最著名的大熊猫保护基地，近距离观看国宝大熊猫，萌态可掬，网红打卡必去\",\n          \"poi_id\": \"B023B04G0P\"\n        },\n        {\n          \"name\": \"春熙路步行街\",\n          \"address\": \"春熙路(春熙路地铁站)\",\n          \"lng\": 104.082625,\n          \"lat\": 30.652325,\n          \"visit_duration\": \"1小时\",\n          \"ticket_price\": 0,\n          \"description\": \"成都最繁华的商业街，时尚潮流聚集地，IFS熊猫爬墙是网红打卡地标\",\n          \"poi_id\": \"B023B04G0Q\"\n        },\n        {\n          \"name\": \"太古里\",\n          \"address\": \"中纱帽街8号(春熙路地铁站C口步行200米)\",\n          \"lng\": 104.083625,\n          \"lat\": 30.652125,\n          \"visit_duration\": \"1.5小时\",\n          \"ticket_price\": 0,\n          \"description\": \"开放式街区购物中心，传统川西建筑与现代时尚完美融合，网红餐厅和潮牌云集\",\n          \"poi_id\": \"B023B04G0R\"\n        }\n      ],\n      \"meals\": [\n        {\n          \"restaurant\": \"洞子口张老二凉粉(文殊院店)\",\n          \"address\": \"文殊院街39号(文殊院地铁站K口步行320米)\",\n          \"lng\": 104.078125,\n          \"lat\": 30.681325,\n          \"meal_type\": \"早餐\",\n          \"estimated_cost\": 15,\n          \"recommendation\": \"甜水面、凉粉、锅盔\"\n        },\n        {\n          \"restaurant\": \"马旺子川菜馆(太古里店)\",\n          \"address\": \"东糠市街1号(春熙路地铁站E2口步行400米)\",\n          \"lng\": 104.082875,\n          \"lat\": 30.651875,\n          \"meal_type\": \"午餐\",\n          \"estimated_cost\": 80,\n          \"recommendation\": \"水煮鱼、夫妻肺片、毛血旺\"\n        },\n        {\n          \"restaurant\": \"大龙燚火锅(太古里店)\",\n          \"address\": \"东大街下东大街段166号(春熙路地铁站E2口步行350米)\",\n          \"lng\": 104.082925,\n          \"lat\": 30.652625,\n          \"meal_type\": \"晚餐\",\n          \"estimated_cost\": 100,\n          \"recommendation\": \"麻辣锅底、鲜鸭血、黄喉、酥肉\"\n        }\n      ],\n      \"routes\": [\n        {\n          \"from_place\": \"成都大熊猫繁育研究基地\",\n          \"to_place\": \"春熙路步行街\",\n          \"mode\": \"transit\",\n          \"distance\": \"12.0km\",\n          \"duration\": \"40分钟\"\n        },\n        {\n          \"from_place\": \"春熙路步行街\",\n          \"to_place\": \"太古里\",\n          \"mode\": \"transit\",\n          \"distance\": \"0.3km\",\n          \"duration\": \"5分钟\"\n        }\n      ]\n    }\n  ],\n  \"hotel\": {\n    \"name\": \"全季酒店(成都宽窄巷子店)\",\n    \"address\": \"长顺下街128号(宽窄巷子地铁站D口步行550米)\",\n    \"lng\": 104.055625,\n    \"lat\": 30.666125,\n    \"price_per_night\": 380,\n    \"rating\": \"舒适型\"\n  },\n  \"budget\": {\n    \"tickets\": 105,\n    \"hotel\": 380,\n    \"dining\": 375,\n    \"transportation\": 60,\n    \"total\": 920\n  },\n  \"weather\": [\n    {\n      \"date\": \"2026-05-10\",\n      \"day_weather\": \"多云\",\n      \"night_weather\": \"晴\",\n      \"day_temp\": 25,\n      \"night_temp\": 17\n    },\n    {\n      \"date\": \"2026-05-11\",\n      \"day_weather\": \"晴\",\n      \"night_weather\": \"多云\",\n      \"day_temp\": 27,\n      \"night_temp\": 18\n    }\n  ],\n  \"tips\": [\n    \"成都大熊猫繁育研究基地建议早上7:30开门就入园，熊猫最活跃，中午会睡觉\",\n    \"宽窄巷子和锦里适合晚上逛，夜景更美，小吃更多\",\n    \"陈麻婆豆腐是成都必吃经典，麻婆豆腐麻辣鲜香，人均60元性价比很高\",\n    \"小龙坎和大龙燚是成都火锅代表，建议点微辣锅底，外地人也能接受\",\n    \"人民公园的鹤鸣茶社是体验成都慢生活的最佳去处，盖碗茶15元一杯\",\n    \"太古里IFS的熊猫爬墙是网红打卡地标，在商场7楼可以拍到正面\",\n    \"文殊院门口的洞子口张老二凉粉是地道成都小吃，甜水面必吃\",\n    \"成都地铁非常发达，建议下载成都地铁APP扫码乘车，方便快捷\",\n    \"预算2000元，实际花费约920元，剩余预算可购买火锅底料、兔头等成都特产\"\n  ]\n}\n```",
+  "status": "success"
+}</pre>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="stats-panel">
+        <h2>📊 会话统计</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-label">总步骤数</span>
+                <span class="stat-value">1</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">总 Token</span>
+                <span class="stat-value">41,925</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">总成本</span>
+                <span class="stat-value">$0.0000</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">会话时长</span>
+                <span class="stat-value">31.7s</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">模型调用次数</span>
+                <span class="stat-value">1</span>
+            </div>
+        </div>
+
+        <h3>🔧 工具调用统计</h3>
+        <table class="tool-stats">
+            <tr><th>工具名称</th><th>调用次数</th></tr>
+            <tr><td colspan="2">无工具调用</td></tr>
+        </table>
+
+        
+    </div>
+
+    <script>
+        function toggleDetails(id) {
+            const el = document.getElementById(id);
+            if (el.style.display === 'none' || el.style.display === '') {
+                el.style.display = 'block';
+            } else {
+                el.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
